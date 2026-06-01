@@ -1,0 +1,6 @@
+{
+  "name": "VIP Birthday Letter Automation & Document Generation System",
+  "description": "An automated document generation and VIP database mapping system with server-side Gemini AI content creation and hierarchical archiving.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
