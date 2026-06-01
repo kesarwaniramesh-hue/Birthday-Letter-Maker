@@ -398,7 +398,12 @@ export function useAppState() {
     // Direct mapping implementation based on standard logic defined in requirements
     let targetCategoryName = "";
     if (vip.category.startsWith("MP")) {
-      targetCategoryName = vip.gender === "Male" ? "MP - Lok Sabha (Male)" : "MP - Lok Sabha (Female)";
+      const isRajyaSabha = vip.house === "Rajya Sabha" || vip.category.includes("Rajya Sabha");
+      if (isRajyaSabha) {
+        targetCategoryName = vip.gender === "Male" ? "MP - Rajya Sabha (Male)" : "MP - Rajya Sabha (Female)";
+      } else {
+        targetCategoryName = vip.gender === "Male" ? "MP - Lok Sabha (Male)" : "MP - Lok Sabha (Female)";
+      }
     } else {
       targetCategoryName = vip.category;
     }
