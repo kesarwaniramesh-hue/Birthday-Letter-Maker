@@ -444,6 +444,128 @@ const defaultTemplates = [
     </div>
   </div>
 </div>`
+  },
+  {
+    id: "t8",
+    name: "Hindi Formal Male Birthday Template",
+    category: "Hindi (Formal Male)",
+    subject: "जन्मदिन की हार्दिक शुभकामनाएं और बधाई",
+    content: `<div style="font-family: 'Georgia', serif; line-height: 1.6; color: #1e293b; max-width: 650px; margin: 0 auto; padding: 40px; border: 1px solid #e2e8f0; background: #fff;" id="letter-container">
+  <div style="text-align: center; margin-bottom: 30px;">
+    <div style="font-size: 15px; letter-spacing: 0.1em; color: #b45309; font-weight: bold;">भारत सरकार</div>
+    <div style="font-size: 11px; letter-spacing: 0.2em; color: #475569; margin-top: 4px;">आधिकारिक पत्र व्यवहार</div>
+    <hr style="border: 0; border-top: 2px double #b45309; margin: 15px auto; width: 60%;" />
+  </div>
+
+  <div style="display: flex; justify-content: space-between; margin-bottom: 25px; font-size: 14px; font-family: sans-serif; color: #475569;">
+    <div><strong>संदर्भ संख्या:</strong> IND/GEN/B-DAY/{{YEARS_COMPLETED}}</div>
+    <div><strong>दिनांक:</strong> {{CURRENT_DATE}}</div>
+  </div>
+
+  <p style="font-size: 16px; font-weight: bold; margin-bottom: 4px; font-family: sans-serif;">सेवा में,</p>
+  <div style="font-size: 16px; margin-bottom: 25px; line-height: 1.5;">
+    <strong>श्री {{NAME}}</strong><br />
+    माननीय {{DESIGNATION}}<br />
+    {{house_hi}}, {{constituency_hi}}<br />
+    {{state_hi}}<br />
+    <strong>पता:</strong> {{ADDRESS}}
+  </div>
+
+  <p style="font-size: 16px; font-weight: 500; font-style: italic; margin-bottom: 18px;">आदरणीय श्री {{NAME}} जी,</p>
+
+  <p style="font-size: 16px; text-align: justify; margin-bottom: 18px; text-indent: 40px;">
+    आपके जन्मदिवस के पावन अवसर पर मेरी ओर से आपको हार्दिक बधाई एवं अनंत शुभकामनाएं। जीवन के <strong>{{AGE}} वर्ष</strong> पूर्ण करने की यह ऐतिहासिक यात्रा राष्ट्र के प्रति आपके निरंतर और अथक सेवाभाव का जीवंत प्रतीक है।
+  </p>
+
+  <p style="font-size: 16px; text-align: justify; margin-bottom: 18px; text-indent: 40px;">
+    {{AI_BIRTHDAY_MESSAGE}}
+  </p>
+
+  <div style="background-color: #fef3c7; border-left: 4px solid #d97706; padding: 15px; margin: 25px 0; font-size: 15px; border-radius: 4px;">
+    <strong style="color: #92400e; display: block; margin-bottom: 6px;">व्यक्तित्व एवं उपलब्धियों की पहचान:</strong>
+    <p style="margin: 0 0 8px 0; font-style: italic; color: #451a03;">"{{AI_PROFILE_SUMMARY}}"</p>
+    <div style="margin-top: 10px; color: #4b5563;">
+      {{AI_ACHIEVEMENTS}}
+    </div>
+  </div>
+
+  <p style="font-size: 16px; text-align: justify; margin-bottom: 30px; text-indent: 40px;">
+    समाज की भलाई और जनभावनाओं के प्रति आपका सेवाभाव अत्यंत वंदनीय है। मैं ईश्वर से आपके उत्तम स्वास्थ्य, सुखी जीवन और दीर्घायु की कामना करता हूँ, ताकि आप निरंतर देश की प्रगति में अपना मूल्यवान मार्गदर्शन प्रदान करते रहें।
+  </p>
+
+  <p style="font-size: 16px; margin-bottom: 35px;">सादर और शुभकामनाओं सहित,</p>
+
+  <div style="display: flex; justify-content: flex-end; text-align: right; margin-top: 40px;">
+    <div>
+      <div style="margin-bottom: 15px;">
+        <span style="font-family: 'Caveat', cursive, sans-serif; font-size: 24px; color: #1e3a8a; border-bottom: 1px solid #94a3b8; padding-bottom: 4px; display: inline-block;">आधिकारिक हस्ताक्षर</span>
+      </div>
+      <strong>प्रशासनिक निदेशक</strong><br />
+      <span style="font-size: 12px; color: #64748b;">वीआईपी जनरेशन एवं अभिलेख इकाई</span>
+    </div>
+  </div>
+</div>`
+  },
+  {
+    id: "t9",
+    name: "Hindi Formal Female Birthday Template",
+    category: "Hindi (Formal Female)",
+    subject: "जन्मदिन की हार्दिक शुभकामनाएं और बधाई",
+    content: `<div style="font-family: 'Georgia', serif; line-height: 1.6; color: #1e293b; max-width: 650px; margin: 0 auto; padding: 40px; border: 1px solid #e2e8f0; background: #fff;" id="letter-container">
+  <div style="text-align: center; margin-bottom: 30px;">
+    <div style="font-size: 15px; letter-spacing: 0.1em; color: #0284c7; font-weight: bold;">भारत सरकार</div>
+    <div style="font-size: 11px; letter-spacing: 0.2em; color: #475569; margin-top: 4px;">आधिकारिक पत्र व्यवहार</div>
+    <hr style="border: 0; border-top: 2px double #0284c7; margin: 15px auto; width: 60%;" />
+  </div>
+
+  <div style="display: flex; justify-content: space-between; margin-bottom: 25px; font-size: 14px; font-family: sans-serif; color: #475569;">
+    <div><strong>संदर्भ संख्या:</strong> IND/GEN/B-DAY/FEMALE/{{YEARS_COMPLETED}}</div>
+    <div><strong>दिनांक:</strong> {{CURRENT_DATE}}</div>
+  </div>
+
+  <p style="font-size: 16px; font-weight: bold; margin-bottom: 4px; font-family: sans-serif;">सेवा में,</p>
+  <div style="font-size: 16px; margin-bottom: 25px; line-height: 1.5;">
+    <strong>श्रीमती {{NAME}}</strong><br />
+    माननीय {{DESIGNATION}}<br />
+    {{house_hi}}, {{constituency_hi}}<br />
+    {{state_hi}}<br />
+    <strong>पता:</strong> {{ADDRESS}}
+  </div>
+
+  <p style="font-size: 16px; font-weight: 500; font-style: italic; margin-bottom: 18px;">आदरणीय श्रीमती {{NAME}} जी,</p>
+
+  <p style="font-size: 16px; text-align: justify; margin-bottom: 18px; text-indent: 40px;">
+    आपके जन्मदिवस के पावन अवसर पर मेरी ओर से आपको हार्दिक बधाई एवं अनंत शुभकामनाएं। जीवन के <strong>{{AGE}} वर्ष</strong> पूर्ण करने की यह ऐतिहासिक यात्रा राष्ट्र के प्रति आपके निरंतर और अथक सेवाभाव का जीवंत प्रतीक है।
+  </p>
+
+  <p style="font-size: 16px; text-align: justify; margin-bottom: 18px; text-indent: 40px;">
+    {{AI_BIRTHDAY_MESSAGE}}
+  </p>
+
+  <div style="background-color: #f0f9ff; border-left: 4px solid #0284c7; padding: 15px; margin: 25px 0; font-size: 15px; border-radius: 4px;">
+    <strong style="color: #0369a1; display: block; margin-bottom: 6px;">व्यक्तित्व एवं उपलब्धियों की पहचान:</strong>
+    <p style="margin: 0 0 8px 0; font-style: italic; color: #0c4a6e;">"{{AI_PROFILE_SUMMARY}}"</p>
+    <div style="margin-top: 10px; color: #4b5563;">
+      {{AI_ACHIEVEMENTS}}
+    </div>
+  </div>
+
+  <p style="font-size: 16px; text-align: justify; margin-bottom: 30px; text-indent: 40px;">
+    समाज की भलाई और जनभावनाओं के प्रति आपका सेवाभाव अत्यंत वंदनीय है। मैं ईश्वर से आपके उत्तम स्वास्थ्य, सुखी जीवन और दीर्घायु की कामना करता हूँ, ताकि आप निरंतर देश की प्रगति में अपना मूल्यवान मार्गदर्शन प्रदान करती रहें।
+  </p>
+
+  <p style="font-size: 16px; margin-bottom: 35px;">सादर और शुभकामनाओं सहित,</p>
+
+  <div style="display: flex; justify-content: flex-end; text-align: right; margin-top: 40px;">
+    <div>
+      <div style="margin-bottom: 15px;">
+        <span style="font-family: 'Caveat', cursive, sans-serif; font-size: 24px; color: #1e3a8a; border-bottom: 1px solid #94a3b8; padding-bottom: 4px; display: inline-block;">आधिकारिक हस्ताक्षर</span>
+      </div>
+      <strong>प्रशासनिक निदेशक</strong><br />
+      <span style="font-size: 12px; color: #64748b;">वीआईपी जनरेशन एवं अभिलेख इकाई</span>
+    </div>
+  </div>
+</div>`
   }
 ];
 
@@ -1187,9 +1309,9 @@ function getGeminiClient(): GoogleGenAI {
 // Endpoint to generate content using Gemini
 app.post("/api/gemini/generate", async (req, res) => {
   try {
-    const { name, designation, category, state, ministry, politicalParty, age, salutation } = req.body;
+    const { name, designation, category, state, ministry, politicalParty, age, salutation, isHindi } = req.body;
 
-    const promptText = `
+    let promptText = `
 Generate standard dignitary birthday letter items for this public personality:
 Name: ${name}
 Designation: ${designation}
@@ -1209,6 +1331,28 @@ Please return your response in standard JSON format containing exactly these thr
 
 Ensure the return is clean JSON. Do not add markdown backticks (\`\`\`json) or any preamble outside of the JSON parseable block.
 `;
+
+    if (isHindi) {
+      promptText = `
+Generate standard dignitary birthday letter items in HIGH-LEVEL FORMAL HINDI (हिंदी भाषा) for this public personality:
+Name: ${name}
+Designation: ${designation}
+Category: ${category}
+State: ${state || 'N/A'}
+Ministry: ${ministry || 'N/A'}
+Political Party: ${politicalParty || 'N/A'}
+Age: ${age || 'N/A'}
+
+Make sure the output strictly contains high-level, ultra-formal, dignified Hindi language written in Devanagari script, worthy of official Indian government/parliament correspondence (सरकारी/संसदीय राजभाषा).
+
+Please return your response in standard JSON format containing exactly these three fields (values must be in Hindi Devanagari script):
+1. "message": A customized formal birthday wish in Hindi incorporating their public role (approx 2 sentences). Keep it neutral, non-partisan, grand, and inspiring. (e.g. "आपके जन्मदिवस के इस मंगलमय अवसर पर...")
+2. "profile": A concise summary narrative in Hindi (1-2 sentences) of their devotion to the progress of the nation.
+3. "achievements": Hand-crafted formal details in Hindi formatted as an HTML list (e.g., "<ul><li>सार्वजनिक जीवन में उनके अथक योगदान...</li><li>विकास योजनाओं का सफल क्रियान्वयन...</li></ul>") listing 2-3 significant dignitary achievements suitable for inclusion in an official greeting letter. Utilize details of their listed Ministry, state or category dynamically.
+
+Ensure the return is clean JSON. Do not use markdown backticks or block formatting.
+`;
+    }
 
     // Attempt to utilize Gemini
     try {
@@ -1239,6 +1383,27 @@ Ensure the return is clean JSON. Do not add markdown backticks (\`\`\`json) or a
     } catch (e: any) {
       console.warn("Failing back to fallback generator due to Gemini API failure or missing keys:", e.message);
       
+      if (isHindi) {
+        const fallbackSummaries = [
+          `संसदीय कार्यप्रणाली और लोक नीति में गहरी सूझबूझ के धनी जनप्रिय नेता, जिनके नेतृत्व में लोकहितकारी पहलों को एक नई दिशा प्राप्त हुई है।`,
+          `प्रशासनिक सुधारों और बुनियादी ढांचे के विकास के लिए समर्पित एक दूरदर्शी लोक सेवक, जिन्होंने जनमानस के जीवन स्तर को ऊंचा उठाने में ऐतिहासिक योगदान दिया है।`
+        ];
+        const randomSummary = fallbackSummaries[Math.floor(Math.random() * fallbackSummaries.length)];
+        
+        return res.json({
+          success: true,
+          message: `आपके जन्मदिवस के पावन अवसर पर हमारी ओर से आपको कोटि-कोटि बधाई एवं हार्दिक शुभकामनाएं। लोक कल्याण और सामाजिक उत्थान की दिशा में आपकी अटूट निष्ठा व निरंतर लगन राष्ट्र निर्माण के लिए एक प्रेरणादायक ऊर्जा पुंज है।`,
+          profile: randomSummary,
+          achievements: `<ul>
+            <li>संसदीय बहसों और राष्ट्रीय नीति सुधारों में हमेशा सकारात्मक एवं उत्प्रेरक भूमिका निभाई।</li>
+            <li>प्रशासनिक शुचिता और विकासोन्मुखी नीतियों के जरिए जनता की आकांक्षाओं को पूर्णता प्रदान की।</li>
+            <li>विभिन्न संसदीय समितियों के पटल पर लोक हित के महत्वपूर्ण विषयों को प्रखरता से प्रस्तुत किया।</li>
+          </ul>`,
+          isFallback: true,
+          info: "Generated via server-side Hindi fallback engine (No active Gemini API key or quota exceeded)"
+        });
+      }
+
       // Stand-by fallback engine for robustness when API key is missing
       const fallbackGreetings = [
         `On this special day, we express our profound gratitude for your exceptional contributions and the integrity with which you represent your constituency. Your high level of leadership in governance and unwavering energy continues to steer our democracy onto strides of public progress.`,

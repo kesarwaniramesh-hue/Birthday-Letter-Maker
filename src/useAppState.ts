@@ -428,13 +428,61 @@ export function useAppState() {
       age = 50; // Safeguard fallback
     }
 
+    const isHindi = template.name.toLowerCase().includes("hindi") || 
+                    template.category.toLowerCase().includes("hindi") || 
+                    template.content.includes("सेवा में,");
+
     // Default dates labels
     const dobFormatted = vip.dob;
-    const currentDateFormatted = currentDateObj.toLocaleDateString("en-IN", {
-      day: "numeric",
-      month: "long",
-      year: "numeric"
-    });
+    const currentDateFormatted = isHindi 
+      ? currentDateObj.toLocaleDateString("hi-IN", { day: "numeric", month: "long", year: "numeric" })
+      : currentDateObj.toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
+
+    // Dynamic Hindi dictionary for standard names, locations and metadata
+    const translateToHindi = (text: string | undefined): string => {
+      if (!text) return "";
+      const dict: Record<string, string> = {
+        "Lok Sabha": "लोक सभा",
+        "Rajya Sabha": "राज्य सभा",
+        "Parliament": "संसद",
+        "Delhi": "दिल्ली",
+        "Maharashtra": "महाराष्ट्र",
+        "Rajasthan": "राजस्थान",
+        "Uttar Pradesh": "उत्तर प्रदेश",
+        "Gujarat": "गुजरात",
+        "Bihar": "बिहार",
+        "West Bengal": "पश्चिम बंगाल",
+        "Madhya Pradesh": "मध्य प्रदेश",
+        "Tamil Nadu": "तमिलनाडु",
+        "Karnataka": "कर्नाटक",
+        "Andhra Pradesh": "आंध्र प्रदेश",
+        "Haryana": "हरियाणा",
+        "Punjab": "पंजाब",
+        "Himachal Pradesh": "हिमाचल प्रदेश",
+        "Kerala": "केरल",
+        "Chief Minister": "मुख्यमंत्री",
+        "Governor": "राज्यपाल",
+        "Speaker": "अध्यक्ष",
+        "Prime Minister": "प्रधानमंत्री",
+        "President": "राष्ट्रपति",
+        "N/A": "",
+        "State Assembly": "विधानसभा",
+        "Kota": "कोटा",
+        "Baramati": "बारामती",
+        "Nagpur": "नागपुर",
+        "Mumbai": "मुंबई"
+      };
+      
+      let translated = text;
+      Object.keys(dict).forEach((key) => {
+        if (translated === key) {
+          translated = dict[key];
+        } else {
+          translated = translated.replaceAll(key, dict[key]);
+        }
+      });
+      return translated;
+    };
 
     // Populate placeholder mappings
     const mappings: Record<string, string> = {
@@ -453,6 +501,9 @@ export function useAppState() {
       "{{ADDRESS}}": vip.address,
       "{{SALUTATION}}": vip.salutation,
       "{{YEARS_COMPLETED}}": String(age),
+      "{{house_hi}}": translateToHindi(vip.house || "Parliament"),
+      "{{constituency_hi}}": translateToHindi(vip.constituency || "State Assembly"),
+      "{{state_hi}}": translateToHindi(vip.state || ""),
     };
 
     // Replace static text fields first
@@ -474,7 +525,8 @@ export function useAppState() {
             ministry: vip.ministry,
             politicalParty: vip.politicalParty,
             age: age,
-            salutation: vip.salutation
+            salutation: vip.salutation,
+            isHindi: isHindi
           })
         });
 
@@ -491,10 +543,22 @@ export function useAppState() {
       }
     }
 
-    // Standard fallback strings in case AI variables are not resolved
-    content = content.replaceAll("{{AI_BIRTHDAY_MESSAGE}}", "Wishing you immense strengths, courage, and long life to continue leading our civic society with outstanding excellence.");
-    content = content.replaceAll("{{AI_PROFILE_SUMMARY}}", "A revered representative whose visionary dedication inside committees and public office serves as a deep pillar of community progress.");
-    content = content.replaceAll("{{AI_ACHIEVEMENTS}}", "<ul><li>Fostered community progress metrics.</li><li>Contributed actively to national legislative dialogues.</li></ul>");
+    // Standard fallback strings incase AI variables are not resolved (localized for Hindi if requested)
+    const fallbackMessage = isHindi
+      ? "आपके जन्मदिवस के इस मंगलमय अवसर पर हम आपके उत्तम स्वास्थ्य, दीर्घायु और सुख-समृद्धि की कामना करते हैं। लोक कल्याण और उत्कृष्ट शासन में आपका बहुमूल्य योगदान भारत की प्रगति में एक मजबूत स्तंभ है।"
+      : "Wishing you immense strengths, courage, and long life to continue leading our civic society with outstanding excellence.";
+    
+    const fallbackProfile = isHindi
+      ? "राष्ट्र और जनकल्याण के प्रति समर्पित एक प्रख्यात राजनेता एवं जनसेवक जिनका दूरदर्शी नेतृत्व विकास की नई गाथाएं लिख रहा है।"
+      : "A revered representative whose visionary dedication inside committees and public office serves as a deep pillar of community progress.";
+      
+    const fallbackAchievements = isHindi
+      ? "<ul><li>जनकल्याणकारी नीतियों के सफल क्रियान्वयन में सक्रिय भूमिका निभाई।</li><li>अपने क्षेत्र की जनता की समस्याओं के निवारण और क्षेत्र के सर्वांगीण विकास में महत्वपूर्ण योगदान दिया।</li></ul>"
+      : "<ul><li>Fostered community progress metrics.</li><li>Contributed actively to national legislative dialogues.</li></ul>";
+
+    content = content.replaceAll("{{AI_BIRTHDAY_MESSAGE}}", fallbackMessage);
+    content = content.replaceAll("{{AI_PROFILE_SUMMARY}}", fallbackProfile);
+    content = content.replaceAll("{{AI_ACHIEVEMENTS}}", fallbackAchievements);
 
     return content;
   };

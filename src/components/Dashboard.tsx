@@ -54,6 +54,7 @@ export default function Dashboard({
   const [progressPercent, setProgressPercent] = useState<number>(0);
   const [progressMsg, setProgressMsg] = useState<string>("");
   const [draftLetter, setDraftLetter] = useState<{ vip: VipRecord; content: string } | null>(null);
+  const [selectedModalTemplateId, setSelectedModalTemplateId] = useState<string>("");
 
   // Filter lists derivation
   const categories = Array.from(new Set(vips.map(v => v.category))).filter(Boolean);
@@ -115,6 +116,7 @@ export default function Dashboard({
       alert("No suitable template matched for this VIP category. Access 'Templates' tab to draft one.");
       return;
     }
+    setSelectedModalTemplateId(tmpl.id);
     setGenerating(true);
     setProgressMsg(`Synthesizing intelligence greeting letter for ${vip.name}...`);
     try {
@@ -526,10 +528,48 @@ export default function Dashboard({
 
             {/* Document Workspace Sandbox */}
             <div className="flex-1 overflow-y-auto p-6 bg-slate-50 border-y border-slate-200">
+              {/* Dynamic Style and Language Switcher */}
+              <div className="mb-4 bg-white border border-slate-200 rounded-xl p-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div className="space-y-0.5">
+                  <span className="text-[10px] uppercase font-mono tracking-wider text-amber-600 font-bold font-sans">Template Customization</span>
+                  <h4 className="text-sm font-semibold text-slate-800 font-sans">Choose official layout style or select Hindi letter templates</h4>
+                </div>
+                <div className="flex items-center gap-2">
+                  <select
+                    value={selectedModalTemplateId}
+                    onChange={async (e) => {
+                      const newTmplId = e.target.value;
+                      setSelectedModalTemplateId(newTmplId);
+                      const newTmpl = templates.find(t => t.id === newTmplId);
+                      if (newTmpl) {
+                        setGenerating(true);
+                        setProgressMsg(`Synthesizing alternative greeting: ${newTmpl.name}...`);
+                        try {
+                          const compiledHtml = await generateLetterContent(draftLetter.vip, newTmpl, true);
+                          setDraftLetter({ vip: draftLetter.vip, content: compiledHtml });
+                        } catch (err: any) {
+                          console.error(err);
+                          alert("Failed to compile layout: " + err.message);
+                        } finally {
+                          setGenerating(false);
+                        }
+                      }
+                    }}
+                    className="bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 font-semibold font-sans focus:outline-none focus:ring-1 focus:ring-amber-500"
+                  >
+                    {templates.map((t) => (
+                      <option key={t.id} value={t.id}>
+                        {t.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
               <div className="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-xl text-xs text-blue-800 flex items-start gap-2">
                 <Sparkles className="w-4 h-4 shrink-0 text-blue-600 mt-0.5" />
                 <div>
-                  <strong>AI variables resolved:</strong> Custom paragraphs have been formatted cleanly using <strong>gemini-3.5-flash</strong> model logic on Server side. You can edit the content below manually right now before signing the physical letterhead.
+                  <strong>AI variables resolved:</strong> Custom paragraphs cover the representative's profile and background in your chosen language using <strong>gemini-3.5-flash</strong>. You can manually edit the text blocks before saving.
                 </div>
               </div>
 
