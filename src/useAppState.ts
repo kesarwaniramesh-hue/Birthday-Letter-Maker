@@ -460,6 +460,9 @@ export function useAppState() {
         "Punjab": "पंजाब",
         "Himachal Pradesh": "हिमाचल प्रदेश",
         "Kerala": "केरल",
+        "Telangana": "तेलंगाना",
+        "Assam": "असम",
+        "Odisha": "ओडिशा",
         "Chief Minister": "मुख्यमंत्री",
         "Governor": "राज्यपाल",
         "Speaker": "अध्यक्ष",
@@ -470,7 +473,22 @@ export function useAppState() {
         "Kota": "कोटा",
         "Baramati": "बारामती",
         "Nagpur": "नागपुर",
-        "Mumbai": "मुंबई"
+        "Mumbai": "मुंबई",
+        "Bengaluru South": "बेंगलुरु दक्षिण",
+        "Thoothukudi": "थूथुकुडी",
+        "Mainpuri": "मैनपुरी",
+        "Hyderabad": "हैदराबाद",
+        "Diamond Harbour": "डायमंड हार्बर",
+        "Jorhat": "जोरहाट",
+        "Mandi": "मंडी",
+        "Bathinda": "बठिंडा",
+        "Rae Bareli": "रायबरेली",
+        "Mumbai North": "मुंबई उत्तर",
+        "Thiruvananthapuram": "तिरुवनंतपुरम",
+        "Kannauj": "कन्नौज",
+        "Krishnanagar": "कृष्णनगर",
+        "Mathura": "मथुरा",
+        "New Delhi": "नई दिल्ली"
       };
       
       let translated = text;
