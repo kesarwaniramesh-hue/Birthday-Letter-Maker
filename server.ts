@@ -642,20 +642,20 @@ const defaultVips = [
     remarks: "Upcoming Birthday June 5!"
   },
   {
-    id: "vip_atishi",
-    name: "Atishi Marlena",
+    id: "vip_rekha",
+    name: "Rekha Gupta",
     gender: "Female",
-    dob: "1981-06-08",
+    dob: "1974-09-12",
     category: "Chief Minister",
     designation: "Chief Minister of Delhi",
     state: "Delhi",
-    politicalParty: "AAP",
+    politicalParty: "BJP",
     address: "6, Flag Staff Road, Civil Lines, Delhi",
     email: "cmdelhi@nic.in",
     mobile: "011-23392020",
-    salutation: "Dear Smt. Atishi Ji",
+    salutation: "Respected Chief Minister Smt. Rekha Gupta Ji",
     priority: "High",
-    remarks: "Upcoming Birthday June 8!"
+    remarks: "Chief Minister of Delhi"
   },
   {
     id: "vip_mamata",
@@ -748,18 +748,18 @@ const defaultVips = [
     priority: "High"
   },
   {
-    id: "vip_shinde",
-    name: "Eknath Shinde",
+    id: "vip_fadnavis",
+    name: "Devendra Fadnavis",
     gender: "Male",
-    dob: "1964-02-09",
+    dob: "1970-07-22",
     category: "Chief Minister",
     designation: "Chief Minister of Maharashtra",
     state: "Maharashtra",
-    politicalParty: "Shiv Sena",
+    politicalParty: "BJP",
     address: "Varsha Bungalow, Malabar Hill, Mumbai",
     email: "cm.maharashtra@gov.in",
     mobile: "022-22025151",
-    salutation: "Dear Shri Eknath Shinde Ji",
+    salutation: "Respected Chief Minister Shri Devendra Fadnavis Ji",
     priority: "High"
   },
   {
@@ -1286,6 +1286,9 @@ async function startServer() {
       res.sendFile(path.join(distPath, "index.html"));
     });
   }
+
+  // Pre-load and sync database to ensure defaultVips updates are persisted to disk immediately
+  loadDatabase();
 
   app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running in ${process.env.NODE_ENV || "development"} mode on http://localhost:${PORT}`);
